@@ -93,7 +93,7 @@ def interior_infer(job):
         resp_10 = put_orders(order_id, progress_10, token)
         print("response: ", resp_10.text)
         infer_start=time.time()
-        imgs = generator(prompt=prompt,style=style,creativity=creativity) 
+        imgs = generator(prompt=prompt,style=style,creativity=creativity, order_id=order_id, token=token) 
         infer_end=time.time()
         infer_time = [infer_end-infer_start]
         
