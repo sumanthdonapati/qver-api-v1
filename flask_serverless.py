@@ -84,6 +84,14 @@ def interior_infer(job):
         except Exception as e:
             print("trans error ignored: ",e)
         print(prompt)
+        progress_10 = {
+                    "data": {
+                        "progress":10
+                    }
+                    }
+        print("json_data: ", progress_10)
+        resp_10 = put_orders(order_id, progress_10, token)
+        print("response: ", resp_10.text)
         infer_start=time.time()
         imgs = generator(prompt=prompt,style=style,creativity=creativity) 
         infer_end=time.time()
