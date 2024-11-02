@@ -218,35 +218,7 @@ class Interior:
 
         # Text processing
         #style_prompt = f"{user_prompt} {self.style_json[style]} bright interior"
-        style_prompt = f"{self.style_json[style]} "
-        # textboxfofo_1598 = self.textboxfofo.get_value(Text="8k interior photogrpahy, high quality image of ")
-        # textboxfofo_1390 = self.textboxfofo.get_value(Text=style_prompt)
-        # textboxfofo_1833 = self.textboxfofo.get_value(Text="(")
-        # textboxfofo_2165 = self.textboxfofo.get_value(Text=user_prompt)
-        # textboxfofo_1832 = self.textboxfofo.get_value(Text=":1.2), ")
-        # textboxfofo_1864 = self.textboxfofo.get_value(Text="sunny day, rays, glare")
-
-        # text_concatenate_1368 = self.text_concatenate.text_concatenate(
-        #     delimiter="",
-        #     clean_whitespace="false",
-        #     text_a=get_value_at_index(textboxfofo_1598, 0),
-        #     text_b=get_value_at_index(textboxfofo_1390, 0),
-        #     text_c=get_value_at_index(textboxfofo_1833, 0),
-        #     text_d=get_value_at_index(textboxfofo_2165, 0),
-        # )
-
-        # text_concatenate_1863 = self.text_concatenate.text_concatenate(
-        #     delimiter="",
-        #     clean_whitespace="false",
-        #     text_a=get_value_at_index(text_concatenate_1368, 0),
-        #     text_b=get_value_at_index(textboxfofo_1832, 0),
-        #     text_c=get_value_at_index(textboxfofo_1864, 0),
-        # )
-        # print("text_concatenate_1863: ", get_value_at_index(text_concatenate_1863, 0))
-        # showtextpysssss_1370 = self.showtextpysssss.notify(
-        #     text=get_value_at_index(text_concatenate_1863, 0),
-        #     unique_id=6011451200176829294,
-        # )
+        style_prompt = f"{self.style_json[style]}"
         final_prompt = f"8k interior photogrpahy, high quality image of {style_prompt}(({user_prompt}):1.2)"
         print("final_prompt: ", final_prompt)
         # Model loading and processing
@@ -265,7 +237,14 @@ class Interior:
             empty_latent_height=704,
             batch_size=1,
         )
-
+       progress_25 = {
+                    "data": {
+                        "progress":25
+                    }
+                    }
+        print("json_data: ", progress_25)
+        resp_10 = put_orders(order_id, progress_25, token)
+        print("response 25: ", resp_25.text)
         ipadapterunifiedloader_1105 = self.ipadapterunifiedloader.load_models(
             preset="STANDARD (medium strength)",
             model=get_value_at_index(efficient_loader_218, 0),
@@ -391,6 +370,15 @@ class Interior:
             latent_image=get_value_at_index(vaeencode_1100, 0),
             optional_vae=get_value_at_index(efficient_loader_218, 4),
         )
+
+       progress_75 = {
+                    "data": {
+                        "progress":75
+                    }
+                    }
+        print("json_data: ", progress_75)
+        resp_10 = put_orders(order_id, progress_75, token)
+        print("response 75: ", resp_75.text)
 
         easy_cleangpuused_1492 = self.easy_cleangpuused.empty_cache(
             anything=get_value_at_index(ksampler_efficient_214, 5),
