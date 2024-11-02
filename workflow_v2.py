@@ -184,6 +184,8 @@ class Interior:
         st = time.time()
         user_prompt = kwargs.get('prompt')
         style = kwargs.get('style')
+        token = kwargs.get('token')
+        order_id = kwargs.get('order_id')
         print("style: ", style)
         style_img = random.choice(os.listdir(f"ComfyUI/input/Styles/{style}"))
         style_img = f"Styles/{style}/{style_img.split('/')[-1]}"
@@ -240,7 +242,7 @@ class Interior:
         
         progress_25 = {"data": {"progress":25}}
         print("json_data: ", progress_25)
-        resp_10 = put_orders(order_id, progress_25, token)
+        resp_25 = put_orders(order_id, progress_25, token)
         print("response 25: ", resp_25.text)
         ipadapterunifiedloader_1105 = self.ipadapterunifiedloader.load_models(
             preset="STANDARD (medium strength)",
@@ -368,9 +370,9 @@ class Interior:
             optional_vae=get_value_at_index(efficient_loader_218, 4),
         )
 
-       progress_75 = {"data": {"progress":75}}
+        progress_75 = {"data": {"progress":75}}
         print("json_data: ", progress_75)
-        resp_10 = put_orders(order_id, progress_75, token)
+        resp_75 = put_orders(order_id, progress_75, token)
         print("response 75: ", resp_75.text)
 
         easy_cleangpuused_1492 = self.easy_cleangpuused.empty_cache(
