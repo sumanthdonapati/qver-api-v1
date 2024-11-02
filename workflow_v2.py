@@ -8,7 +8,7 @@ import numpy as np
 from PIL import Image
 import gc
 import json
-
+from utilities import *
 def get_value_at_index(obj: Union[Sequence, Mapping], index: int) -> Any:
     """Returns the value at the given index of a sequence or mapping.
 
@@ -237,11 +237,8 @@ class Interior:
             empty_latent_height=704,
             batch_size=1,
         )
-       progress_25 = {
-                    "data": {
-                        "progress":25
-                    }
-                    }
+        
+        progress_25 = {"data": {"progress":25}}
         print("json_data: ", progress_25)
         resp_10 = put_orders(order_id, progress_25, token)
         print("response 25: ", resp_25.text)
@@ -371,11 +368,7 @@ class Interior:
             optional_vae=get_value_at_index(efficient_loader_218, 4),
         )
 
-       progress_75 = {
-                    "data": {
-                        "progress":75
-                    }
-                    }
+       progress_75 = {"data": {"progress":75}}
         print("json_data: ", progress_75)
         resp_10 = put_orders(order_id, progress_75, token)
         print("response 75: ", resp_75.text)
