@@ -40,11 +40,15 @@ def interior_infer(job):
         token = body.get('token')
         creativity = body.get("creativity")
         base_64 = body.get("base64",False)
-        
-        # data = check_order(depth_image,token)
-        # print("data: ",data)
-        # if data['final_image']is not None:
-        #     return get_error_response("request already processed",400,type="serverless")
+
+        try:
+            data = check_order(order_id,token)
+            print("data: ",data)
+            if data['attributes']['final_image'] is not None:
+                return get_error_response("request already processed",400,type="serverless")
+        except:
+            print('order validation failed')
+            pass
 
         if input_image is None:
             return get_error_response("image not found",400,type="serverless")
